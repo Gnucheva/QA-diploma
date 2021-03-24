@@ -43,9 +43,7 @@ out/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
-Thumbs.db*
+
 .DS_Store*
 node_modules
-.idea
 target
-*.iml
