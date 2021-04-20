@@ -156,6 +156,22 @@ public class Test {
     }
 
     @org.junit.jupiter.api.Test
+    void shouldPayByDebitCardWithInvalidOwner() {
+        val paymentPage = dashboardPage.payByDebitCard();
+        val invalidOwner = DataHelper.getInvalidOwnerCard();
+        paymentPage.enterCardInfo(invalidOwner);
+        paymentPage.invalidOwner();
+    }
+
+    @org.junit.jupiter.api.Test
+    void shouldPayByCreditCardWithInvalidOwner() {
+        val paymentPage = dashboardPage.payByCreditCard();
+        val invalidOwner = DataHelper.getInvalidOwnerCard();
+        paymentPage.enterCardInfo(invalidOwner);
+        paymentPage.invalidOwner();
+    }
+
+    @org.junit.jupiter.api.Test
     void shouldPayByDebitCardWithValidCardNumberAndInvalidOtherFields() {
         val paymentPage = dashboardPage.payByDebitCard();
         val validCardNumberWithInvalidOtherFields = DataHelper.getValidCardNumberWithInvalidOtherFields();

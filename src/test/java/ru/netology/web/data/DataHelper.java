@@ -79,5 +79,13 @@ public class DataHelper {
         return new CardInfo(getApprovedCardNumber(), dateGenerator.getInvalidYear().getYear(), dateGenerator.getInvalidMonth().getMonth(), getInvalidOwner(), getInvalidCvc());
     }
 
+    public static CardInfo getInvalidOwnerCard() {
+        return new CardInfo(getApprovedCardNumber(),
+                dateGenerator.getValidExpirationDate().getYear(),
+                dateGenerator.getValidMonth().getMonth(),
+                getInvalidOwner(),
+                getValidCvc());
+    }
+
 }
 
