@@ -21,6 +21,8 @@ java -jar artifacts/aqa-shop.jar
 ```
 gradlew clean test allureReport
 gradlew allureReport
+gradlew allureServe
+
 ``` 
 4. Закрыть все контейнеры командой
 ``` 
