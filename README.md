@@ -19,7 +19,9 @@ java -jar artifacts/aqa-shop.jar
 ```
 4. Запустить авто-тесты командой
 ```
-gradlew clean test
+gradlew clean test allureReport
+gradlew allureServe
+
 ``` 
 4. Закрыть все контейнеры командой
 ``` 
