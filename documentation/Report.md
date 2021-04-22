@@ -16,9 +16,9 @@
 - количество успешных тест-кейсов - 12 (66,66%)
 - количество не успешных тест-кейсов - 6 (33,34%)
 
-![Отчет ]( picture/report 2.jpg )
+![Отчет ]( C:\Users\trock\Desktop\GitHub\QA-diploma\documentation\picture\report 2.jpg )
 
-![Отчет 2  ]( picture/report 1.jpg )
+![Отчет 2  ]( C:\Users\trock\Desktop\GitHub\QA-diploma\documentation\picture\report 1.jpg)
 
 **3. Общие рекомендации**
 
