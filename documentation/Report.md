@@ -22,5 +22,5 @@
 
 **3. Общие рекомендации**
 
-По результатам тестирования были заведены следующие [Issues]( https://github.com/Gnucheva/QA-diploma/ ).
+По результатам тестирования были заведены следующие [Issues]( https://github.com/Gnucheva/QA-diploma/issues ).
 
