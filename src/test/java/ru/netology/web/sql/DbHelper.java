@@ -1,5 +1,6 @@
 package ru.netology.web.sql;
 
+import lombok.SneakyThrows;
 import lombok.val;
 import org.apache.commons.dbutils.QueryRunner;
 
@@ -8,19 +9,26 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DbHelper {
+
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/app", "app", "pass");
+        String url = System.getProperty("url");
+        String username = System.getProperty("username");
+        String password = System.getProperty("password");
+        try {
+            return DriverManager.getConnection(url, username, password);
+        } catch (SQLException err) {
+            err.printStackTrace();
+        }
+        return null;
     }
 
+    @SneakyThrows
     public static void cleanDb() {
         val deleteCreditRequest = "DELETE FROM credit_request_entity";
         val deleteOrderEntity = "DELETE FROM order_entity";
         val deletePaymentEntity = "DELETE FROM payment_entity";
         val runner = new QueryRunner();
-        try (val conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/app", "app", "pass"
-        )
+        try (val conn = getConnection();
         ) {
             runner.update(conn, deleteCreditRequest);
             runner.update(conn, deleteOrderEntity);
@@ -30,6 +38,7 @@ public class DbHelper {
         }
     }
 
+    @SneakyThrows
     public static String getPaymentEntity() {
         try (val conn = getConnection();
              val countStmt = conn.createStatement()) {
@@ -44,6 +53,7 @@ public class DbHelper {
         return null;
     }
 
+    @SneakyThrows
     public static String getCreditEntity() {
         try (val conn = getConnection();
              val countStmt = conn.createStatement()) {
@@ -57,5 +67,4 @@ public class DbHelper {
         }
         return null;
     }
-
 }

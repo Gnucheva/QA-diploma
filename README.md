@@ -6,21 +6,37 @@
 docker-compose up
 ```
 3. Запустить SUT командой
+   
+для MySQL:
 ``` 
-java -jar artifacts/aqa-shop.jar 
+java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar artifacts/aqa-shop.jar
 ```
-4. Запустить авто-тесты командой
+для PostgreSQL:
 ```
-gradlew clean test
+java -Dspring.datasource.url=jdbc:postgresql://localhost:5433/app -jar artifacts/aqa-shop.jar
 ```
-5.Сгенерировать отчеты
+4. Запустить авто-тесты командой 
+   
+для MySQL:
+```
+gradlew clean test -Durl=jdbc:mysql://localhost:3306/app
+```
+для PostgreSQL:
+```
+gradlew clean test -Durl=jdbc:postgresql://localhost:5433/app
+```
 
+5.Сгенерировать отчеты
 ``` 
 gradlew allureReport
 gradlew allureServe
 ``` 
+6.Для завершения работы allureServe выполнить команду:
+```
+Ctrl + С далее Y
+```
 
-4. Закрыть все контейнеры командой
+7.Закрыть все контейнеры командой
 ``` 
 docker-compose down 
 ``` 

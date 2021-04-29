@@ -18,6 +18,7 @@ public class Test {
 
     DashboardPage dashboardPage = new DashboardPage();
 
+
     @BeforeEach
     void setup() {
         open("http://localhost:8080");
@@ -81,7 +82,7 @@ public class Test {
         val paymentPage = dashboardPage.payByDebitCard();
         val invalidCardInformation = DataHelper.getInvalidCardInformation();
         paymentPage.enterCardInfo(invalidCardInformation);
-        paymentPage.invalidCardNumber();
+        paymentPage.checkInvalidCardNumber();
     }
 
     @org.junit.jupiter.api.Test
@@ -89,7 +90,7 @@ public class Test {
         val paymentPage = dashboardPage.payByCreditCard();
         val invalidCardInformation = DataHelper.getInvalidCardInformation();
         paymentPage.enterCardInfo(invalidCardInformation);
-        paymentPage.invalidCardNumber();
+        paymentPage.checkInvalidCardNumber();
     }
 
     @org.junit.jupiter.api.Test
@@ -97,7 +98,7 @@ public class Test {
         val paymentPage = dashboardPage.payByDebitCard();
         val expiredYearCardInformation = DataHelper.getExpiredYearCardInformation();
         paymentPage.enterCardInfo(expiredYearCardInformation);
-        paymentPage.expiredYear();
+        paymentPage.checkExpiredYearMessage();
     }
 
     @org.junit.jupiter.api.Test
@@ -105,7 +106,7 @@ public class Test {
         val paymentPage = dashboardPage.payByCreditCard();
         val expiredYearCardInformation = DataHelper.getExpiredYearCardInformation();
         paymentPage.enterCardInfo(expiredYearCardInformation);
-        paymentPage.expiredYear();
+        paymentPage.checkExpiredYearMessage();
     }
 
     @org.junit.jupiter.api.Test
@@ -113,7 +114,7 @@ public class Test {
         val paymentPage = dashboardPage.payByDebitCard();
         val invalidExpirationDate = DataHelper.getInvalidExpirationDateCardInformation();
         paymentPage.enterCardInfo(invalidExpirationDate);
-        paymentPage.invalidExpirationDate();
+        paymentPage.checkInvalidExpirationDate();
     }
 
     @org.junit.jupiter.api.Test
@@ -121,7 +122,7 @@ public class Test {
         val paymentPage = dashboardPage.payByCreditCard();
         val invalidExpirationDate = DataHelper.getInvalidExpirationDateCardInformation();
         paymentPage.enterCardInfo(invalidExpirationDate);
-        paymentPage.invalidExpirationDate();
+        paymentPage.checkInvalidExpirationDate();
     }
 
     @org.junit.jupiter.api.Test
@@ -129,7 +130,7 @@ public class Test {
         val paymentPage = dashboardPage.payByDebitCard();
         val expiredMonth = DataHelper.getExpiredMonthCardInformation();
         paymentPage.enterCardInfo(expiredMonth);
-        paymentPage.expiredMonth();
+        paymentPage.checkExpiredMonthMessage();
     }
 
     @org.junit.jupiter.api.Test
@@ -137,7 +138,7 @@ public class Test {
         val paymentPage = dashboardPage.payByCreditCard();
         val expiredMonth = DataHelper.getExpiredMonthCardInformation();
         paymentPage.enterCardInfo(expiredMonth);
-        paymentPage.expiredMonth();
+        paymentPage.checkExpiredMonthMessage();
     }
 
     @org.junit.jupiter.api.Test
@@ -145,11 +146,11 @@ public class Test {
         val paymentPage = dashboardPage.payByDebitCard();
         val emptyCardInformation = DataHelper.getEmptyCardInformation();
         paymentPage.enterCardInfo(emptyCardInformation);
-        paymentPage.emptyCardNumber();
-        paymentPage.emptyMonth();
-        paymentPage.emptyYear();
-        paymentPage.emptyOwner();
-        paymentPage.emptyCvc();
+        paymentPage.checkEmptyCardNumberFieldMessage();
+        paymentPage.checkEmptyMonthFieldMessage();
+        paymentPage.checkEmptyYearFieldMessage();
+        paymentPage.checkEmptyOwnerFieldMessage();
+        paymentPage.checkEmptyCvcFieldMessage();
     }
 
     @org.junit.jupiter.api.Test
@@ -157,11 +158,11 @@ public class Test {
         val paymentPage = dashboardPage.payByCreditCard();
         val emptyCardInformation = DataHelper.getEmptyCardInformation();
         paymentPage.enterCardInfo(emptyCardInformation);
-        paymentPage.emptyCardNumber();
-        paymentPage.emptyMonth();
-        paymentPage.emptyYear();
-        paymentPage.emptyOwner();
-        paymentPage.emptyCvc();
+        paymentPage.checkEmptyCardNumberFieldMessage();
+        paymentPage.checkEmptyMonthFieldMessage();
+        paymentPage.checkEmptyYearFieldMessage();
+        paymentPage.checkEmptyOwnerFieldMessage();
+        paymentPage.checkEmptyCvcFieldMessage();
     }
 
     @org.junit.jupiter.api.Test
@@ -169,7 +170,7 @@ public class Test {
         val paymentPage = dashboardPage.payByDebitCard();
         val invalidOwner = DataHelper.getInvalidOwnerCard();
         paymentPage.enterCardInfo(invalidOwner);
-        paymentPage.invalidOwner();
+        paymentPage.checkInvalidOwner();
     }
 
     @org.junit.jupiter.api.Test
@@ -177,7 +178,7 @@ public class Test {
         val paymentPage = dashboardPage.payByCreditCard();
         val invalidOwner = DataHelper.getInvalidOwnerCard();
         paymentPage.enterCardInfo(invalidOwner);
-        paymentPage.invalidOwner();
+        paymentPage.checkInvalidOwner();
     }
 
     @org.junit.jupiter.api.Test
@@ -185,10 +186,10 @@ public class Test {
         val paymentPage = dashboardPage.payByDebitCard();
         val validCardNumberWithInvalidOtherFields = DataHelper.getValidCardNumberWithInvalidOtherFields();
         paymentPage.enterCardInfo(validCardNumberWithInvalidOtherFields);
-        paymentPage.invalidMonth();
-        paymentPage.invalidYear();
-        paymentPage.invalidOwner();
-        paymentPage.invalidCvc();
+        paymentPage.checkInvalidMonth();
+        paymentPage.checkInvalidYear();
+        paymentPage.checkInvalidOwner();
+        paymentPage.checkInvalidCvc();
     }
 
     @org.junit.jupiter.api.Test
@@ -196,10 +197,10 @@ public class Test {
         val paymentPage = dashboardPage.payByCreditCard();
         val validCardNumberWithInvalidOtherFields = DataHelper.getValidCardNumberWithInvalidOtherFields();
         paymentPage.enterCardInfo(validCardNumberWithInvalidOtherFields);
-        paymentPage.invalidMonth();
-        paymentPage.invalidYear();
-        paymentPage.invalidOwner();
-        paymentPage.invalidCvc();
+        paymentPage.checkInvalidMonth();
+        paymentPage.checkInvalidYear();
+        paymentPage.checkInvalidOwner();
+        paymentPage.checkInvalidCvc();
     }
 
 }

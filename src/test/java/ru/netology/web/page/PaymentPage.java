@@ -4,6 +4,8 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.web.data.DataHelper;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.withText;
@@ -19,7 +21,7 @@ public class PaymentPage {
     private SelenideElement cardCVC = $("[placeholder='999']");
     private SelenideElement buyButton = $$(".button").find(exactText("Продолжить"));
 
-    private SelenideElement sucсessNotification = $(withText("Успешно"));
+    private SelenideElement successNotification = $(withText("Успешно"));
     private SelenideElement errorNotification = $(withText("Ошибка"));
     private SelenideElement cardNumberFieldWarning = $("fieldset > div:nth-child(1) > span > span > span.input__sub");
     private SelenideElement monthFieldWarning = $("div:nth-child(2) > span > span:nth-child(1) > span > span > span.input__sub");
@@ -37,62 +39,62 @@ public class PaymentPage {
     }
 
     public void successNotification() {
-        sucсessNotification.waitUntil(Condition.visible, 15000);
+        successNotification.waitUntil(Condition.visible, 15000);
     }
 
     public void errorNotification() {
         errorNotification.waitUntil(Condition.visible, 15000);
     }
 
-    public void invalidCardNumber() {
+    public void checkInvalidCardNumber() {
         cardNumberFieldWarning.shouldHave(text("Неверный формат"));
     }
 
-    public void invalidMonth() {
+    public void checkInvalidMonth() {
         monthFieldWarning.shouldHave(text("Неверный формат"));
     }
 
-    public void invalidYear() {
+    public void checkInvalidYear() {
         yearFieldWarning.shouldHave(text("Неверный формат"));
     }
 
-    public void invalidOwner() {
+    public void checkInvalidOwner() {
         ownerFieldWarning.shouldHave(text("Неверный формат"));
     }
 
-    public void invalidCvc() {
+    public void checkInvalidCvc() {
         cvcFieldWarning.shouldHave(text("Неверный формат"));
     }
 
-    public void emptyCardNumber() {
+    public void checkEmptyCardNumberFieldMessage() {
         cardNumberFieldWarning.shouldHave(text("Неверный формат"));
     }
 
-    public void emptyMonth() {
+    public void checkEmptyMonthFieldMessage() {
         monthFieldWarning.shouldHave(text("Неверный формат"));
     }
 
-    public void emptyYear() {
+    public void checkEmptyYearFieldMessage() {
         yearFieldWarning.shouldHave(text("Неверный формат"));
     }
 
-    public void emptyOwner() {
+    public void checkEmptyOwnerFieldMessage() {
         ownerFieldWarning.shouldHave(text("Поле обязательно для заполнения"));
     }
 
-    public void emptyCvc() {
+    public void checkEmptyCvcFieldMessage() {
         cvcFieldWarning.shouldHave(text("Неверный формат"));
     }
 
-    public void expiredYear() {
+    public void checkExpiredYearMessage() {
         yearFieldWarning.shouldHave(text("Истёк срок действия карты"));
     }
 
-    public void expiredMonth() {
+    public void checkExpiredMonthMessage() {
         monthFieldWarning.shouldHave(text("Неверно указан срок действия карты"));
     }
 
-    public void invalidExpirationDate() {
+    public void checkInvalidExpirationDate() {
         yearFieldWarning.shouldHave(text("Неверно указан срок действия карты"));
     }
 }
