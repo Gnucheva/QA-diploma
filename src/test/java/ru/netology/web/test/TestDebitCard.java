@@ -41,7 +41,7 @@ public class TestDebitCard {
         val paymentPage = dashboardPage.payByDebitCard();
         val approvedCardInformation = DataHelper.getApprovedCardInformation();
         paymentPage.enterCardInfo(approvedCardInformation);
-        paymentPage.successNotification();
+        paymentPage.waitSuccessNotification();
         val paymentStatus = DbHelper.getPaymentEntity();
         assertEquals("APPROVED", paymentStatus);
     }
@@ -51,7 +51,7 @@ public class TestDebitCard {
         val paymentPage = dashboardPage.payByDebitCard();
         val declinedCardInformation = DataHelper.getDeclinedCardInformation();
         paymentPage.enterCardInfo(declinedCardInformation);
-        paymentPage.errorNotification();
+        paymentPage.waitErrorNotification();
         val paymentStatus = DbHelper.getPaymentEntity();
         assertEquals("DECLINED", paymentStatus);
     }

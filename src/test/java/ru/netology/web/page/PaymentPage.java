@@ -4,8 +4,6 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.web.data.DataHelper;
 
-import java.time.Duration;
-
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.withText;
@@ -38,11 +36,11 @@ public class PaymentPage {
         buyButton.click();
     }
 
-    public void successNotification() {
+    public void waitSuccessNotification() {
         successNotification.waitUntil(Condition.visible, 15000);
     }
 
-    public void errorNotification() {
+    public void waitErrorNotification() {
         errorNotification.waitUntil(Condition.visible, 15000);
     }
 

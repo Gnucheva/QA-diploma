@@ -44,50 +44,50 @@ public class DateGenerator {
     }
 
     @Value
-    public static class Year {
+    protected static class Year {
         String year;
     }
 
-    public Year getCurrentYear() {
+    protected Year getCurrentYear() {
         LocalDate currentYear = LocalDate.now();
         return new Year(yearFormatter.format(currentYear));
     }
 
-    public Year getValidExpirationDate() {
+    protected Year getValidExpirationDate() {
         LocalDate newYear = today.plusYears(1);
         return new Year(yearFormatter.format(newYear));
     }
 
-    public Year getExpiredYear() {
+    protected Year getExpiredYear() {
         LocalDate newYear = today.minusYears(1);
         return new Year(yearFormatter.format(newYear));
     }
 
-    public Year getInvalidExpirationDate() {
+    protected Year getInvalidExpirationDate() {
         LocalDate newYear = today.plusYears(10);
         return new Year(yearFormatter.format(newYear));
     }
 
-    public Year getInvalidYear() {
+    protected Year getInvalidYear() {
         return new Year("00");
     }
 
     @Value
-    public static class Month {
+    protected static class Month {
         String month;
     }
 
-    public Month getValidMonth() {
+    protected Month getValidMonth() {
         LocalDate newMonth = today.plusMonths(1);
         return new Month(monthFormatter.format(newMonth));
     }
 
-    public Month getExpiredMonth() {
+    protected Month getExpiredMonth() {
         LocalDate newMonth = today.minusMonths(1);
         return new Month(monthFormatter.format(newMonth));
     }
 
-    public Month getInvalidMonth() {
+    protected Month getInvalidMonth() {
         return new Month("13");
     }
 

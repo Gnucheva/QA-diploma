@@ -44,7 +44,6 @@ test {
     testLogging.showStandardStreams = true
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
     systemProperty 'junit.jupiter.extensions.autodetection.enabled', true
-    System.setProperty("webdriver.edge.driver","E:\\edgedriver.exe")
     systemProperty 'url', System.getProperty('url')
     systemProperty 'username', System.getProperty('username', 'app')
     systemProperty 'password', System.getProperty('password', 'pass')

@@ -41,7 +41,7 @@ public class TestCreditCard {
         val paymentPage = dashboardPage.payByCreditCard();
         val approvedCardInformation = DataHelper.getApprovedCardInformation();
         paymentPage.enterCardInfo(approvedCardInformation);
-        paymentPage.successNotification();
+        paymentPage.waitSuccessNotification();
         val creditStatus = DbHelper.getCreditEntity();
         assertEquals("APPROVED", creditStatus);
     }
@@ -51,7 +51,7 @@ public class TestCreditCard {
         val paymentPage = dashboardPage.payByCreditCard();
         val declinedCardInformation = DataHelper.getDeclinedCardInformation();
         paymentPage.enterCardInfo(declinedCardInformation);
-        paymentPage.errorNotification();
+        paymentPage.waitErrorNotification();
         val creditStatus = DbHelper.getCreditEntity();
         assertEquals("DECLINED", creditStatus);
     }
