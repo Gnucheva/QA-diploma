@@ -1,3 +1,5 @@
+[![BCH compliance](https://bettercodehub.com/edge/badge/Gnucheva/QA-diploma?branch=main)](https://bettercodehub.com/)
+
 ## Запуск авто-тестов
 ### Шаги по воспроизведению :
 1. Запустить в Docker контейнеры СУБД MySQl, PostgerSQL и Node.js
