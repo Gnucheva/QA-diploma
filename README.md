@@ -47,3 +47,6 @@ Ctrl + С далее Y
 ``` 
 docker-compose down 
 ``` 
+Демонстрация 
+
+<p align="left"><a><img src="https://github.com/Gnucheva/QA-diploma/blob/main/gif/Test.gif" width="300"></a></p>
