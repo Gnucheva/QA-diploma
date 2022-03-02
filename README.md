@@ -1,3 +1,5 @@
+[![BCH compliance](https://bettercodehub.com/edge/badge/Gnucheva/QA-diploma?branch=main)](https://bettercodehub.com/)
+
 ## Запуск авто-тестов
 ### Шаги по воспроизведению :
 1. Запустить в Docker контейнеры СУБД MySQl, PostgerSQL и Node.js
@@ -15,6 +17,11 @@ java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar artifacts/aqa-
 ```
 java -Dspring.datasource.url=jdbc:postgresql://localhost:5433/app -jar artifacts/aqa-shop.jar
 ```
+Приложение должно запуститься на:
+```
+http://localhost:8080/
+```
+
 4. Запустить авто-тесты командой 
    
 для MySQL:
