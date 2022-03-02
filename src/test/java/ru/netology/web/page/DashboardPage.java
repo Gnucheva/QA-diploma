@@ -5,26 +5,25 @@ import com.codeborne.selenide.SelenideElement;
 
 import java.time.Duration;
 
-import static com.codeborne.selenide.Condition.enabled;
-import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$$;
 
 
 public class DashboardPage {
     private final SelenideElement paymentButton = $$("button").find(exactText("Купить"));
     private final SelenideElement creditButton = $$("button").find(exactText("Купить в кредит"));
-    private final SelenideElement payCard = $$("h3[class]").find(exactText("Оплата по карте"));
-    private final SelenideElement payCredit = $$("h3[class]").find(exactText("Кредит по данным карты"));
+    private final SelenideElement payCard = $$("h3").find(text("Оплата по карте"));
+    private final SelenideElement payCredit = $$("h3").find(text("Кредит по данным карты"));
 
     public PaymentPage payByDebitCard() {
         paymentButton.click();
-        payCard.waitUntil(enabled, 15000);
+        payCard.shouldBe(visible);
         return new PaymentPage();
     }
 
     public PaymentPage payByCreditCard() {
         creditButton.click();
-        payCredit.waitUntil(enabled, 15000);
+        payCredit.shouldBe(visible);
         return new PaymentPage();
     }
 }

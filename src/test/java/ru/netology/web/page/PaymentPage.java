@@ -4,11 +4,14 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.web.data.DataHelper;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import static java.time.Duration.*;
 
 public class PaymentPage {
 
@@ -37,11 +40,11 @@ public class PaymentPage {
     }
 
     public void waitSuccessNotification() {
-        successNotification.waitUntil(Condition.visible, 15000);
+        successNotification.shouldBe(Condition.visible);
     }
 
     public void waitErrorNotification() {
-        errorNotification.waitUntil(Condition.visible, 15000);
+        errorNotification.shouldBe(Condition.visible);
     }
 
     public void checkInvalidCardNumber() {
